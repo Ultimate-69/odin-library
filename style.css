@@ -13,7 +13,7 @@ header {
     align-items: center;
 }
 
-header button {
+.blue-button {
     padding: 15px;
     font-size: 20px;
     border: none;
@@ -24,8 +24,22 @@ header button {
     transition: opacity 0.2s;
 }
 
-header button:hover {
+dialog {
+    border: none;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+
+.blue-button:hover {
     opacity: 0.7;
+}
+
+#submit, #cancel {
+    font-size: 16px;
+    padding: 10px;
+    width: 105px;
+    margin-left: 15px;
 }
 
 .books {

@@ -9,21 +9,35 @@
     <body>
         <header>
             <h1>library<span class="suffix">.net</span></h1>
-            <button>
+            <button id="new" class="blue-button">
                 New Book
             </button>
         </header>
         <hr>
         <main>
-            <div class="books">
-                <div class="book">
-                    <p>Name</p>
-                    <p>By Author</p>
-                    <p>0 Pages</p>
-                    <hr>
-                    <p>Not Read</p>
-                </div>
-            </div>
+            <dialog id="new-book">
+                <form method="dialog">
+                    <label for="book-name">Book Name:</label>
+                    <input id="book-name" type="text" name="book-name">
+                    <br>
+                    <br>
+                    <label for="author-name">Author:</label>
+                    <input id="author-name" type="text" name="author-name">
+                    <br>
+                    <br>
+                    <label for="pages">Pages</label>
+                    <input id="pages" type="number" name="pages" min="1">
+                    <br>
+                    <br>
+                    <label for="read">Read/Not Read</label>
+                    <input id="read" type="checkbox" name="read">
+                    <br>
+                    <br>
+                    <button type="submit" id="submit" class="blue-button">Add Book</button>
+                    <button type="button" id="cancel" class="blue-button">Cancel</button>
+                </form>
+            </dialog>
+            <div class="books"></div>
         </main>
     <script src="main.js"></script>
     </body>

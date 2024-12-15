@@ -1,5 +1,16 @@
 const myLibrary = [];
 
+const newButton = document.querySelector('#new');
+const newBookModal = document.querySelector('#new-book');
+const submit = document.querySelector('#submit');
+const cancel = document.querySelector('#cancel');
+
+const bookName = document.querySelector('#book-name')
+const authorName = document.querySelector('#author-name')
+const pages = document.querySelector('#pages')
+const read = document.querySelector('#read')
+const bookContainer = document.querySelector(".books");
+
 function Book(name, author, pages, read) {
     this.name = name;
     this.author = author;
@@ -21,35 +32,63 @@ myLibrary.push(book3)
 myLibrary.push(book4)
 myLibrary.push(book5)
 
-const bookContainer = document.querySelector(".books");
-myLibrary.forEach((value) => {
-    let html = 
-    `
-    <div class="book">
-        <p>${value.name}</p>
-        <p>By ${value.author}</p>
-        <p>${value.pages} Pages</p>
-        <hr>
-    `
+renderLibraryHtml();
 
-    if (value.read) {
-        html += 
-        `
-            <p>Read</p>
-        </div>
-    `
-    }
-    else {
-    html += 
-    `
-        <p>Not Read</p>
-    </div>
-    `
-    }
-
-    bookContainer.innerHTML += html;
-})
 
 function addBookToLibrary(book) {
     myLibrary.push(book)
+}
+
+newButton.addEventListener('click', () => {
+    newBookModal.showModal();
+});
+
+submit.addEventListener('click', (event) => {
+    event.preventDefault();
+    newBookModal.close();
+    console.log('hey!');
+    let tempBook = new Book(bookName.value, authorName.value, pages.value, read.checked === true);
+    addBookToLibrary(tempBook);
+    renderLibraryHtml();
+})
+
+cancel.addEventListener('click', () => {
+    newBookModal.close();
+    bookName.value = '';
+    authorName.value = '';
+    pages.value = 1;
+    read.checked = false;
+});
+
+
+function renderLibraryHtml() {
+    let htmlToAdd = '';
+    myLibrary.forEach((value) => {
+        let html = 
+        `
+        <div class="book">
+            <p>${value.name}</p>
+            <p>By ${value.author}</p>
+            <p>${value.pages} Pages</p>
+            <hr>
+        `
+    
+        if (value.read) {
+            html += 
+            `
+                <p>Read</p>
+            </div>
+        `
+        }
+        else {
+        html += 
+        `
+            <p>Not Read</p>
+        </div>
+        `
+        }
+    
+        htmlToAdd += html;
+    })
+    bookContainer.innerHTML = htmlToAdd;
 }
