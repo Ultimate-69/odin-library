@@ -21,6 +21,35 @@ myLibrary.push(book3)
 myLibrary.push(book4)
 myLibrary.push(book5)
 
+const bookContainer = document.querySelector(".books");
+myLibrary.forEach((value) => {
+    let html = 
+    `
+    <div class="book">
+        <p>${value.name}</p>
+        <p>By ${value.author}</p>
+        <p>${value.pages} Pages</p>
+        <hr>
+    `
+
+    if (value.read) {
+        html += 
+        `
+            <p>Read</p>
+        </div>
+    `
+    }
+    else {
+    html += 
+    `
+        <p>Not Read</p>
+    </div>
+    `
+    }
+
+    bookContainer.innerHTML += html;
+})
+
 function addBookToLibrary(book) {
     myLibrary.push(book)
 }

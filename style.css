@@ -1,0 +1,42 @@
+body {
+    font-family: Helvetica;
+}
+
+.suffix {
+    font-weight: 100;
+    font-size: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header button {
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    background-color: rgb(136, 139, 247);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+header button:hover {
+    opacity: 0.7;
+}
+
+.books {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.book {
+    border: 1px solid black;
+    padding: 15px;
+    width: 200px;
+    border-radius: 6px;
+}
