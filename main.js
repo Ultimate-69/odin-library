@@ -78,6 +78,7 @@ function renderLibraryHtml() {
             `
                 <p>Read</p>
                 <button class="blue-button delete" onclick="deleteBook(${index})">Delete</button>
+                <button class="blue-button markAsRead" onclick="toggleRead(${index})">Toggle Read</button>
             </div>
         `
         }
@@ -86,6 +87,7 @@ function renderLibraryHtml() {
             `
                 <p>Not Read</p>
                 <button class="blue-button delete" onclick="deleteBook(${index})">Delete</button>
+                <button class="blue-button markAsRead" onclick="toggleRead(${index})">Toggle Read</button>
             </div>
             `
         }
@@ -103,4 +105,9 @@ function deleteBook(index) {
             renderLibraryHtml();
         }
     });
+}
+
+function toggleRead(index) {
+    myLibrary[index].read = !myLibrary[index].read;
+    renderLibraryHtml();
 }
