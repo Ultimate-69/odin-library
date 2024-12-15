@@ -42,10 +42,16 @@ dialog {
     margin-left: 15px;
 }
 
+.delete {
+    font-size: 16px;
+    padding: 10px;
+}
+
 .books {
     display: flex;
     flex-wrap: wrap;
     gap: 9px;
+    row-gap: 20px;
 }
 
 .book {

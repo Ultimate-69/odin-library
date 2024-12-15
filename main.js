@@ -63,10 +63,10 @@ cancel.addEventListener('click', () => {
 
 function renderLibraryHtml() {
     let htmlToAdd = '';
-    myLibrary.forEach((value) => {
+    myLibrary.forEach((value, index) => {
         let html = 
         `
-        <div class="book">
+        <div data-id="${index}" class="book">
             <p>${value.name}</p>
             <p>By ${value.author}</p>
             <p>${value.pages} Pages</p>
@@ -77,18 +77,30 @@ function renderLibraryHtml() {
             html += 
             `
                 <p>Read</p>
+                <button class="blue-button delete" onclick="deleteBook(${index})">Delete</button>
             </div>
         `
         }
         else {
-        html += 
-        `
-            <p>Not Read</p>
-        </div>
-        `
+            html += 
+            `
+                <p>Not Read</p>
+                <button class="blue-button delete" onclick="deleteBook(${index})">Delete</button>
+            </div>
+            `
         }
     
         htmlToAdd += html;
     })
     bookContainer.innerHTML = htmlToAdd;
+}
+
+function deleteBook(index) {
+    const books = document.querySelectorAll('.book');
+    books.forEach((book) => {
+        if (book.dataset.id == index) {
+            myLibrary.splice(index, 1);
+            renderLibraryHtml();
+        }
+    });
 }
