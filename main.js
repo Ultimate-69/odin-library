@@ -11,11 +11,13 @@ const pages = document.querySelector('#pages')
 const read = document.querySelector('#read')
 const bookContainer = document.querySelector(".books");
 
-function Book(name, author, pages, read) {
-    this.name = name;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+class Book {
+    constructor(name, author, pages, read) {
+        this.name = name;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
 renderLibraryHtml();
